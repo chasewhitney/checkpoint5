@@ -59,7 +59,7 @@ router.put('/:id', function(req,res){
 
   Rental.findByIdAndUpdate(
     {_id: id},
-    {$set: {cost: data.rent, sqft: data.sqft, city: data.city} },
+    {$set: {rent: data.rent, sqft: data.sqft, city: data.city} },
     function(err, data) {
       if(err) {
         console.log('remove error: ', err);
