@@ -17,6 +17,20 @@ router.get('/', function(req, res) {
   });
 });
 
+router.delete('/:id', function(req, res) {
+  console.log('delete with id: ', req.params.id);
+  Rental.findByIdAndRemove(
+    { _id: req.params.id},
+    function(err, data) {
+      if(err) {
+        console.log('remove error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    }
+  );
+});
 
 router.post('/', function(req, res) {
   console.log('log the data: ', req.body);
@@ -36,5 +50,26 @@ router.post('/', function(req, res) {
   });
 
 });
+
+
+
+router.put('/:id', function(req,res){
+  id = req.params.id;
+  data = req.body;
+
+  Rental.findByIdAndUpdate(
+    {_id: id},
+    {$set: {cost: data.rent, sqft: data.sqft, city: data.city} },
+    function(err, data) {
+      if(err) {
+        console.log('remove error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    }
+  );
+});
+
 
 module.exports = router;

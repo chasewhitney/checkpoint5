@@ -56,3 +56,14 @@ ul {
 .updateBtn{
   margin:5px;
 }
+
+.navhead {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.addListing {
+position:absolute;
+left:50%;
+margin-left: -100px;
+}
