@@ -20,7 +20,9 @@ app.use('/', index);
 
 
 /** -------- MONGOOSE CONNECTION --------**/
-var databaseUrl = 'mongodb://localhost:27017/realestate';
+var databaseUrl = DATABASEURI;
+//var databaseUrl = 'mongodb://localhost:27017/realestate'; // Heroku
+
 mongoose.connect(databaseUrl);
 
 mongoose.connection.on('connected', function() {
