@@ -1,0 +1,24 @@
+<div>
+  <h2>Add a posting!</h2>
+
+  <label>
+    <input type="radio" ng-model="type" value="listing">
+    Sale property
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="type" value="rental">
+    Rental property
+  </label><br/>
+  <label>Cost/rent</label>
+    <input type="text" ng-model="money" value="cost">
+  <br/>
+  <label>Square Feet</label>
+    <input type="text" ng-model="sqft" value="sqft">
+  <br/>
+  <label>City</label>
+    <input type="text" ng-model="city" value="location">
+  <br/>
+  <button ng-click="ac.addPost(money, sqft, city, type)">Submit!</button>
+
+
+</div>

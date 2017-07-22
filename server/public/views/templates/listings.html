@@ -1,0 +1,37 @@
+<div>
+
+<h2>Listings!</h2>
+
+<div ng-repeat="item in lc.listings" class="itemBlock col-md-4 col-sm-6">
+  <div class="innerBlock">
+
+    <div class="updateListing" ng-show="item.showUpdate">
+      <label>Cost:</label><br/>
+
+        <input type="text" ng-model="money">
+      <br/>
+      <label>Square Feet:</label><br/>
+        <input type="text" ng-model="sqft">
+      <br/>
+      <label>Location:</label><br/>
+        <input type="text" ng-model="city">
+      <br/>
+      <button class="btn btn-primary updateBtn" ng-click="lc.toggleUpdate($index)">Cancel</button>
+      <button class="btn btn-primary updateBtn" ng-click="lc.updateListing(money, sqft, city, item._id, $index)">Submit!</button>
+
+    </div>
+
+    <img ng-show="!item.showUpdate" ng-src="/views/images/house.jpg" />
+    <button class="btn btn-primary postBtn" type="button" ng-click="lc.toggleUpdate($index)">Update</button>
+    <button class="btn btn-primary postBtn" type="button" ng-click="lc.deleteListing(item._id)">Delete</button>
+  <p class="price">${{item.cost}}</p>
+  <p class="info">{{item.sqft}} square feet</p>
+  <p class="info">Located in {{item.city}}</p>
+
+
+
+
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,58 @@
+h1 {
+  color: MediumSlateBlue;
+}
+
+ul {
+  margin-top:20px;
+}
+
+.itemBlock {
+  padding:5px;
+}
+
+.innerBlock {
+  /*background-color: skyblue;*/
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 400px;
+}
+
+.innerBlock img {
+  max-width: 95%;
+  max-height: 250px;
+  display:block;
+  margin:auto;
+
+
+}
+
+.price {
+  font-size: 32px;
+  margin: 7px;
+}
+
+.info {
+  font-size: 18px;
+  margin: 7px;
+}
+
+.postBtn{
+  float:right;
+  margin: 5px;
+}
+
+.updateListing{
+
+  max-width: 95%;
+  height: 250px;
+  display:block;
+  margin:auto;
+  padding: 20px;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.updateBtn{
+  margin:5px;
+}
