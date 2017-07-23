@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Rental = require('../models/rentals.schema.js');
 
-
-
 router.get('/', function(req, res) {
   // find (select) all documents in our collection
   Rental.find({}, function(err, data) {
@@ -12,7 +10,6 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     } else {
       res.send(data);
-      // res.send(result.rows)
     }
   });
 });
@@ -35,7 +32,7 @@ router.delete('/:id', function(req, res) {
 router.post('/', function(req, res) {
   console.log('log the data: ', req.body);
 
-  // create an object instance from our Person model
+  // create an object instance from our Rental model
   var addPost = new Rental(req.body);
 
   // insert into our collection
@@ -48,15 +45,11 @@ router.post('/', function(req, res) {
       res.sendStatus(201);
     }
   });
-
 });
-
-
 
 router.put('/:id', function(req,res){
   id = req.params.id;
   data = req.body;
-
   Rental.findByIdAndUpdate(
     {_id: id},
     {$set: {rent: data.rent, sqft: data.sqft, city: data.city} },
@@ -70,6 +63,5 @@ router.put('/:id', function(req,res){
     }
   );
 });
-
 
 module.exports = router;

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Listing = require('../models/listings.schema.js');
 
-
 router.get('/', function(req, res) {
   // find (select) all documents in our collection
   Listing.find({}, function(err, data) {
@@ -11,7 +10,6 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     } else {
       res.send(data);
-      // res.send(result.rows)
     }
   });
 });
@@ -31,12 +29,10 @@ router.delete('/:id', function(req, res) {
   );
 });
 
-
-
 router.post('/', function(req, res) {
   console.log('log the data: ', req.body);
 
-  // create an object instance from our Person model
+  // create an object instance from our Listing model
   var addPost = new Listing(req.body);
 
   // insert into our collection
@@ -51,11 +47,9 @@ router.post('/', function(req, res) {
   });
 });
 
-
 router.put('/:id', function(req,res){
   id = req.params.id;
   data = req.body;
-
   Listing.findByIdAndUpdate(
     {_id: id},
     {$set: {cost: data.cost, sqft: data.sqft, city: data.city} },

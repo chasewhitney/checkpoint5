@@ -7,7 +7,6 @@ myApp.config(function($routeProvider){
   $routeProvider
     .when('/listings', {
       controller: 'ListingsController as lc',
-      // template: '<h2>Home Controller</h2>'
       templateUrl: 'views/templates/listings.html'
     })
     .when('/rentals', {

@@ -1,13 +1,22 @@
 h1 {
   color: MediumSlateBlue;
+  font-size: 42px;
+  text-decoration: underline;
 }
 
 ul {
   margin-top:20px;
 }
 
-.itemBlock {
-  padding:5px;
+.addListing {
+position:absolute;
+left:50%;
+margin-left: -100px;
+}
+
+.info {
+  font-size: 18px;
+  margin: 7px;
 }
 
 .innerBlock {
@@ -23,7 +32,25 @@ ul {
   max-height: 250px;
   display:block;
   margin:auto;
+}
 
+.itemBlock {
+  padding:5px;
+}
+
+.navhead {
+  border-bottom: 1px solid black;
+  padding: 10px;
+  text-align:center;
+}
+
+.navhead li {
+  font-size: 20px;
+}
+
+.postBtn{
+  float:right;
+  margin-right: 5px;
 
 }
 
@@ -32,18 +59,11 @@ ul {
   margin: 7px;
 }
 
-.info {
-  font-size: 18px;
-  margin: 7px;
+.updateBtn{
+  margin:5px;
 }
 
-.postBtn{
-  float:right;
-  margin: 5px;
-}
-
-.updateListing{
-
+.updateListing {
   max-width: 95%;
   height: 250px;
   display:block;
@@ -51,19 +71,4 @@ ul {
   padding: 20px;
   font-size: 18px;
   padding-left: 20px;
-}
-
-.updateBtn{
-  margin:5px;
-}
-
-.navhead {
-  border-bottom: 1px solid black;
-  padding: 10px;
-}
-
-.addListing {
-position:absolute;
-left:50%;
-margin-left: -100px;
 }
