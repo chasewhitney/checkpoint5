@@ -22,8 +22,10 @@
     </div>
 
     <img ng-show="!item.showUpdate" ng-src="/views/images/house.jpg" />
-    <button class="btn btn-primary postBtn" type="button" ng-click="lc.toggleUpdate($index)">Update</button>
+
     <button class="btn btn-primary postBtn" type="button" ng-click="lc.deleteListing(item._id)">Delete</button>
+    <button class="btn btn-primary postBtn" type="button" ng-click="lc.toggleUpdate($index)">Update</button>
+
   <p class="price">${{item.cost}}</p>
   <p class="info">{{item.sqft}} square feet</p>
   <p class="info">Located in {{item.city}}</p>
