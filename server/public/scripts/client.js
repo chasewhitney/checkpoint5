@@ -1,24 +1,35 @@
 console.log('js sourced');
 
-var myApp = angular.module("myApp", ['ngRoute']);
+var myApp = angular.module("myApp", []);
 
-myApp.config(function($routeProvider){
-  // define our routes, point them at a controllers
-  $routeProvider
-    .when('/listings', {
-      controller: 'ListingsController as lc',
-      templateUrl: 'views/templates/listings.html'
-    })
-    .when('/rentals', {
-      controller: 'RentalsController as rc',
-      templateUrl: 'views/templates/rentals.html'
-    })
-    .when('/add', {
-      controller: 'AddController as ac',
-      templateUrl: 'views/templates/add.html'
-    })
-    .otherwise({
-      redirectTo: '/listings'
+myApp.controller("MessagesController", function($http){
+  console.log('Messages Controller loaded');
+  var mc = this;
+  mc.messages = [];
+
+  getMessages();
+
+  function getMessages(){
+    // Gets data from Listings collection
+    console.log('in getMessages');
+    $http.get('/messages').then(function(response){
+      console.log('get response:', response);
+      mc.messages = response.data;
+      console.log('mc.messages is:', mc.messages);
     });
+  }
+
+
+  mc.newMessage = function(name, message){
+    console.log('in newMessage with:', name, message);
+    mc.new = {};
+    mc.new.name = name;
+    mc.new.message = message;
+    $http.post('/messages', mc.new).then(function(response){
+      console.log('put message response:', response);
+    });
+    getMessages();
+
+  };
 
 });

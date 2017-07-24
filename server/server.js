@@ -3,24 +3,22 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var index = require('./routes/index.js');
-var listings = require('./routes/listings.js');
-var rentals = require('./routes/rentals.js');
+var messages = require('./routes/messages.js');
 var mongoose = require('mongoose');
-var add = require('./routes/add.js');
+
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(express.static(path.join(__dirname, './public')));
 app.use(bodyParser.json()); // needed for angular requests
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/listings', listings);
-app.use('/rentals', rentals);
-app.use('/add', add);
+app.use('/messages', messages);
+
 app.use('/', index);
 
 
 /** -------- MONGOOSE CONNECTION --------**/
-var databaseUrl = process.env.DATABASEURI || 'mongodb://localhost:27017/realestate';
+var databaseUrl ='mongodb://localhost:27017/messageboard';
 
 mongoose.connect(databaseUrl);
 

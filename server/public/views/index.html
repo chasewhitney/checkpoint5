@@ -6,19 +6,27 @@
     <script type="text/javascript" src="/vendor/angular.min.js"></script>
     <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/listings.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/rentals.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/add.controller.js"></script>
     <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body ng-app="myApp">
-  <div class="container">
+  <div ng-controller="MessagesController as mc" class="container">
 
-  <header ng-include="'/views/templates/nav.html'"></header>
+    <label>Name:</label>
+    <input type="text" ng-model="name">
 
-  <main ng-view></main>
+    <label>Message:</label>
+    <input type="text" ng-model="message">
+
+    <button type="button" ng-click="mc.newMessage(name, message)">Submit!</button>
+
+    <div ng-repeat="item in mc.messages">
+      Name: {{item.name}} <br/>
+
+      Message: {{item.message}} <br/><br/>
+    </div>
+
 
   </div>
 </body>
